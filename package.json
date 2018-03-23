@@ -1,0 +1,16 @@
+{
+  "name": "reactnativedemo",
+  "version": "1.0.0",
+  "description": "A demo for react native",
+  "main": "index.js",
+  "scripts": {
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^16.2.0",
+    "react-native": "^0.54.0"
+  }
+}
