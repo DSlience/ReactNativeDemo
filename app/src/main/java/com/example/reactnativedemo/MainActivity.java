@@ -28,11 +28,11 @@ public class MainActivity extends AppCompatActivity implements DefaultHardwareBa
         mReactRootView = new ReactRootView(this);
         mReactInstanceManager = ReactInstanceManager.builder()
                 .setApplication(getApplication())
-                .setBundleAssetName("index.android.bundle")//可远程地址
+                .setBundleAssetName("index.android.bundle")//从assets文件下读取加载
                 .setJSMainModulePath("index.android")//根目录下index.android.js文件
                 .addPackage(new MainReactPackage())
                 //如果为true，则会启用诸如JS重新加载和调试之类的开发人员选项.反之打包
-                .setUseDeveloperSupport(BuildConfig.DEBUG)
+                .setUseDeveloperSupport(BuildConfig.DEBUG)//支持debug 摇一摇 reload页面
                 .setInitialLifecycleState(LifecycleState.RESUMED)
                 .build();
         mReactRootView.startReactApplication(mReactInstanceManager, "reactnativedemo", null);

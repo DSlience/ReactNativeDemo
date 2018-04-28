@@ -7,7 +7,7 @@ export default class HelloWorld extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <Text style={styles.hello}>Hello, World, 再次</Text>
+                <Text style={styles.hello}>Hello, World, 修改以验证reload</Text>
             </View>
         )
     }

@@ -11,6 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "react": "^16.2.0",
-    "react-native": "^0.54.0"
+    "react-native": "^0.54.0",
+    "react-native-deprecated-custom-components": "github:facebookarchive/react-native-custom-components",
+    "react-navigation": "^1.5.8"
   }
 }
