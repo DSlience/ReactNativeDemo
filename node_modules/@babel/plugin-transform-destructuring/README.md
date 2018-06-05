@@ -7,17 +7,25 @@
 **In**
 
 ```javascript
-let arr = [1,2,3];
-let {x, y, z} = arr;
+let {x, y} = obj;
+
+let [a, b, ...rest] = arr;
 ```
 
 **Out**
 
 ```javascript
-var arr = [1, 2, 3];
-var x = arr.x,
-    y = arr.y,
-    z = arr.z;
+function _toArray(arr) { ... }
+
+let _obj = obj,
+    x = _obj.x,
+    y = _obj.y;
+
+let _arr = arr,
+    _arr2 = _toArray(_arr),
+    a = _arr2[0],
+    b = _arr2[1],
+    rest = _arr2.slice(2);
 ```
 
 ## Installation
@@ -51,3 +59,46 @@ require("@babel/core").transform("code", {
   plugins: ["@babel/plugin-transform-destructuring"]
 });
 ```
+
+## Options
+
+### `loose`
+
+`boolean`, defaults to `false`.
+
+Enabling this option will assume that what you want to destructure is an array and won't use `Array.from` on other iterables.
+
+### `useBuiltIns`
+
+`boolean`, defaults to `false`.
+
+Enabling this option will use `Object.assign` directly instead of the Babel's `extends` helper. 
+
+##### Example
+
+**.babelrc**
+
+```json
+{
+  "plugins": [
+    ["@babel/plugin-transform-destructuring", { "useBuiltIns": true }]
+  ]
+}
+```
+
+**In**
+
+```js
+var { ...x } = z;
+```
+
+**Out**
+
+```js
+var _z = z,
+    x = Object.assign({}, _z);
+```
+
+## References
+
+* [MDN: Destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
